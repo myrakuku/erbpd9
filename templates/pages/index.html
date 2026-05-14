@@ -1,5 +1,5 @@
 {% extends "base.html" %}
-  
+    {% load static %}
     {% block content %}
     
     <!-- Showcase -->
@@ -94,23 +94,24 @@
       </div>
     </section>
 
-    <!-- Listings -->
-    <section id="listings" class="py-5">
+    <!-- listingss -->
+    <section id="listingss" class="py-5">
       <div class="container">
         <h3 class="text-center mb-3">Inpatient medical services</h3>
         <div class="row">
-          <!-- Listing 1 -->
+          <!-- listings 1 -->
           <div class="col-md-6 col-lg-4 mb-4">
-            <div class="card listing-preview">
+            <div class="card listings-preview">
+              {% comment %} fix clinic-1.jpg {% endcomment %}
               <img
                 class="card-img-top"
-                src="assets/img/clinics/clinic-1.jpg"
+                src={% static 'img/clinics/clinic-1.jpg'%}
                 alt=""
               />
               <div class="card-img-overlay">
               </div>
               <div class="card-body">
-                <div class="listing-heading text-center">
+                <div class="listings-heading text-center">
                   <h4 class="text-primary">Harmony Health Clinic</h4>
                   <p>
                     <i class="fas fa-map-marker text-secondary"></i> Kowloon Bay
@@ -143,25 +144,27 @@
                   </div>
                 </div>
                 <hr />
-                <a href="listing.html" class="btn btn-primary btn-block"
+                {% comment %} fix listings.html {% endcomment %}
+                <a href={% url "listings:index" %} class="btn btn-primary btn-block"
                   >More Info</a
                 >
               </div>
             </div>
           </div>
 
-          <!-- Listing 2 -->
+          <!-- listings 2 -->
           <div class="col-md-6 col-lg-4 mb-4">
-            <div class="card listing-preview">
+            <div class="card listings-preview">
+              {% comment %} fix clinic-2.jpg {% endcomment %}
               <img
                 class="card-img-top"
-                src="assets/img/clinics/clinic-2.jpg"
+                src={% static 'img/clinics/clinic-2.jpg'%}
                 alt=""
               />
               <div class="card-img-overlay">
               </div>
               <div class="card-body">
-                <div class="listing-heading text-center">
+                <div class="listings-heading text-center">
                   <h4 class="text-primary">Evercare Medical Center</h4>
                   <p>
                     <i class="fas fa-map-marker text-secondary"></i> Kowloon
@@ -197,25 +200,27 @@
                   </div>
                 </div>
                 <hr />
-                <a href="listing.html" class="btn btn-primary btn-block"
+                {% comment %} fix listings.html {% endcomment %}
+                <a href={% url "listings:index" %}  class="btn btn-primary btn-block"
                   >More Info</a
                 >
               </div>
             </div>
           </div>
 
-          <!-- Listing 3 -->
+          <!-- listings 3 -->
           <div class="col-md-6 col-lg-4 mb-4">
-            <div class="card listing-preview">
+            <div class="card listings-preview">
+              {% comment %} fix clinic-3.jpg {% endcomment %}
               <img
                 class="card-img-top"
-                src="assets/img/clinics/clinic-3.jpg"
+                src={% static 'img/clinics/clinic-3.jpg'%}
                 alt=""
               />
               <div class="card-img-overlay">
               </div>
               <div class="card-body">
-                <div class="listing-heading text-center">
+                <div class="listings-heading text-center">
                   <h4 class="text-primary">VitalPath Wellness Clinic</h4>
                   <p>
                     <i class="fas fa-map-marker text-secondary"></i> Sham Shui
@@ -249,7 +254,8 @@
                   </div>
                 </div>
                 <hr />
-                <a href="listing.html" class="btn btn-primary btn-block"
+                {% comment %} fix listings.html {% endcomment %}
+                <a href={% url "listings:index" %}  class="btn btn-primary btn-block"
                   >More Info</a
                 >
               </div>
