@@ -16,12 +16,20 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
+from debug_toolbar.toolbar import debug_toolbar_urls
+from django.conf import settings
+from django.conf.urls.static import static
 
 urlpatterns = [
     # abc.com/
     path('', include('pages.urls', namespace='pages')),
-    # abc.com/admin/xxx
-    path('admin/', admin.site.urls),
     # # abc.com/listings/xxx
     path('listings/', include('listings.urls', namespace='listings')),
-]
+    # abc.com/admin/xxx
+    path('admin/', admin.site.urls),
+] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT) + debug_toolbar_urls()
+
+# change the admin page design
+admin.site.site_header = "Clinic Administration"
+admin.site.site_title = "Clinic Admin Portal"
+admin.site.index_title = "Welcome to Clinic Admin Portal"

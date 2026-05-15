@@ -4,9 +4,9 @@
     <nav class="navbar navbar-expand-lg navbar-dark bg-primary sticky-top">
       <div class="container">
         {% comment %} fix index.html {% endcomment %}
-        <a class="navbar-brand" href={% url 'pages:index' %}>
+        <a class="navbar-brand" href="{% url 'pages:index' %}">
           {% comment %} fix logo.png {% endcomment %}
-          <img src={% static 'img/logo.png' %} class="logo" alt="" />
+          <img src="{% static 'img/logo.png' %}" class="logo" alt="" />
         </a>
         <button
           class="navbar-toggler"
@@ -22,7 +22,7 @@
               {% else %} class="nav-item mr-3" 
               {% endif %}>
               {% comment %} fix index.html {% endcomment %}
-              <a class="nav-link" href={% url 'pages:index' %}>Home</a>
+              <a class="nav-link" href="{% url 'pages:index' %}">Home</a>
             </li>
             <li {% if '/about' == request.path %} class="nav-item active mr-3" 
               {% else %} class="nav-item mr-3" 
@@ -30,7 +30,7 @@
               {% comment %} fix about.html {% endcomment %}
               <a class="nav-link" href={% url 'pages:about' %}>About</a>
             </li>
-            <li {% if '/listings' == request.path %} class="nav-item active mr-3" 
+            <li {% if '/listings/' == request.path %} class="nav-item active mr-3" 
               {% else %} class="nav-item mr-3" 
               {% endif %}>
               {% comment %} fix listings.html {% endcomment %}
