@@ -1,0 +1,39 @@
+:root {
+    --primary-nav-color: #2a3e60;
+    --primary-color: #fff;
+    --prmary-btn-submit: #31caa0;
+    --prmary-bg-submit: #5c5c5c;
+}
+
+#header {
+    height: 50px;
+    background: var(--primary-nav-color);
+    color: var(--primary-color);
+}
+
+#branding h1 {
+    color: var(--primary-color);
+}
+
+a:link, a:visited {
+    color: var(--primary-nav-color);
+}
+
+div.breadcrumbs {
+    background: var(--primary-nav-color);
+    color: var(--primary-color);
+}
+
+.module h2, .module caption, .inline-group h2 {
+    background: var(--prmary-btn-submit);
+}
+
+.button, input[type=submit], input[type=button],
+.submit-row input, a.button {
+    background: var(--primary-nav-color);
+    color: var(--prmary-bg-submit);
+}
+
+.brands {
+    margin-left: 15px;
+}
