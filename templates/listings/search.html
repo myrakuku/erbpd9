@@ -27,7 +27,7 @@
             <div class="col-md-4 mb-3">
                 <label class="sr-only">District</label>
                 <select name="district" class="form-control">
-                <option {% if not values.district %} selected="true" value="" {% endif %}>
+                <option {% if not values.district %} selected="true" {% endif %} value="" >
                     District (All)
                 </option>
                 {% for key,value in district_choices.items %}
@@ -35,10 +35,11 @@
                 {% endfor %}
                 </select>
             </div>
+            {% comment %} need to fix, cannot remember the number {% endcomment %}
             <div class="col-md-4 mb-3">
                 <label class="sr-only">Rooms</label>
                 <select name="rooms" class="form-control">
-                <option {% if not values.rooms %} selected="true" value="" {% endif %}>
+                <option {% if not values.rooms %} selected="true" {% endif %} value="" >
                     Night (All)
                 </option>
                 {% for key,value in rooms_choices.items %}
@@ -48,7 +49,7 @@
             </div>
             <div class="col-md-4 mb-3">
                 <select name="room_type" class="form-control" id="type">
-                <option {% if not values.room_type %} selected="true" value="" {% endif %}>
+                <option {% if not values.room_type %} selected="true" {% endif %} value="" >
                     Bedrooms (All)
                 </option>
                 {% for key,value in room_type_choices.items %}
