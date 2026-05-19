@@ -7,4 +7,5 @@ urlpatterns = [
     path('', views.listings, name='index'),
     # variable path, setted on 'views.py'
     path('<int:listing_id>', views.listing, name='listing'),
+    path('search', views.search, name='search'),
 ]
