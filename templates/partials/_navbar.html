@@ -27,32 +27,41 @@
             <li {% if '/about' == request.path %} class="nav-item active mr-3" 
               {% else %} class="nav-item mr-3" 
               {% endif %}>
-              {% comment %} fix about.html {% endcomment %}
               <a class="nav-link" href={% url 'pages:about' %}>About</a>
             </li>
             <li {% if '/listings/' == request.path %} class="nav-item active mr-3" 
               {% else %} class="nav-item mr-3" 
               {% endif %}>
-              {% comment %} fix listings.html {% endcomment %}
               <a class="nav-link" href={% url "listings:index" %}>Inpatient medical services</a>
             </li>
           </ul>
 
           <ul class="navbar-nav ml-auto">
-            <li class="nav-item mr-3">
-              {% comment %} fix register.html {% endcomment %}
-              <a class="nav-link" href=''>
-                <i class="fas fa-user-plus"></i> Register</a
-              >
+            {% comment %} right side buttons {% endcomment %}
+            {% if user.is_authenticated %}
+            {% comment %} add login {% endcomment %}
+            <li {% if 'dashobard' in request.path %} class="nav-item active mr-3" 
+              {% else %} class="nav-item mr-3" 
+              {% endif %}>
+              <a class="nav-link" href={% url "accounts:dashboard" %}>
+                <i class="fas fa-user"></i> Welcome!  {{user.username}} (dashboard)</a>
             </li>
-            <li class="nav-item mr-3">
-              {% comment %} fix login.html {% endcomment %}
-              <a class="nav-link" href=''>
-                <i class="fas fa-sign-in-alt"></i>
-
-                Login</a
-              >
+            {% else %}
+            <li {% if '/register' in request.path %} class="nav-item active mr-3" 
+              {% else %} class="nav-item mr-3" 
+              {% endif %}>
+              {% comment %} fix about.html {% endcomment %}
+              <a class="nav-link" href={% url 'accounts:register' %}>
+                <i class="fas fa-user-plus"></i> Register</a>
             </li>
+            <li {% if '/login' in request.path %} class="nav-item active mr-3" 
+              {% else %} class="nav-item mr-3" 
+              {% endif %}>
+              {% comment %} fix about.html {% endcomment %}
+              <a class="nav-link" href={% url 'accounts:login' %}>
+                <i class="fas fa-sign-in-alt"></i> Login</a>
+            </li>
+            {% endif %}
           </ul>
         </div>
       </div>
