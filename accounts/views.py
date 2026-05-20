@@ -41,15 +41,18 @@ def login(request):
         user = auth.authenticate(username=username, password=password)
         if user is not None:
             auth.login(request, user)
-            messages.success(request, "You are now logged in")
-            return redirect("listings:index")
+            # messages.success(request, "You are now logged in")
+            return redirect("accounts:dashboard")
         else:
             messages.error(request, "Invalid credentials")
             return redirect("accounts:login")
     return render(request, "accounts/login.html")
 
 def logout(request):
-    return render(request, "accounts/logout.html")
+    if request.method == "POST":
+        auth.logout(request)
+        messages.success(request, "You have been logged out.") 
+        return redirect("accounts:login")
 
 def dashboard(request):
     return render(request, "accounts/dashboard.html")
