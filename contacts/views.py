@@ -1,4 +1,4 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import get_object_or_404, render, redirect
 from .models import Contact
 from django.contrib import messages
 from django.core.mail import send_mail
@@ -23,12 +23,20 @@ def contact(request):
             
         contact = Contact(listing=listing, listing_id=listing_id, name=name, email=email, phone=phone, message=message, user_id=user_id)
         contact.save()
-        send_mail(
-            "Clinic Inquiry",
-            "There has been an inquiry for " + listing + ". Sign into the admin panel for more info.",
-            "admin@clinic.com",
-            [doctor_email],
-            fail_silently=False
-        )
+        # send_mail(
+        #     "Clinic Inquiry",
+        #     "There has been an inquiry for " + listing + ". Sign into the admin panel for more info.",
+        #     "kumannik.myra@gmail.com",
+        #     [doctor_email],
+        #     fail_silently=False
+        # )
         messages.success(request, "Your request has been submitted!")
     return redirect("listings:listing", listing_id=listing_id)
+
+def delete_contact(request, contact_id):
+    contact = get_object_or_404(Contact, pk=contact_id)
+    contact.delete()
+    return redirect('accounts:dashboard')
+
+def edit_contact(request, contact_id):
+    pass
