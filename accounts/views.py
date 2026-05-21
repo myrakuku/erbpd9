@@ -23,8 +23,7 @@ def register(request):
                     user = User.objects.create_user(username=username, email=email, password=password, first_name=first_name, last_name=last_name)
                     user.save()
                     messages.success(request, "User created")
-                    # update redirct to login
-                return redirect("accounts:register")
+                return redirect("accounts:login")
         else:
             messages.error(request, "Password do not match")
             return redirect("accounts:register") 

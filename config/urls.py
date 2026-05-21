@@ -23,12 +23,10 @@ from django.conf.urls.static import static
 urlpatterns = [
     # abc.com/
     path('', include('pages.urls', namespace='pages')),
-    # # abc.com/listings/xxx
     path('listings/', include('listings.urls', namespace='listings')),
-    # abc.com/admin/xxx
-    path('admin/', admin.site.urls),
-    # abc.com/admaccountsin/xxx
     path('accounts/', include('accounts.urls', namespace='accounts')),
+    path('contacts/', include('contacts.urls', namespace='contacts')),
+    path('admin/', admin.site.urls),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT) + debug_toolbar_urls()
 
 # change the admin page design
